@@ -34,7 +34,7 @@ export default {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
         flipCoin() {
-            return Math.random() > 0.5 ? true : false;
+            return Math.random() > 0.8 ? true : false;
         }
     }
 }
