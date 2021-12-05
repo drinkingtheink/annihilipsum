@@ -23,24 +23,34 @@
           </button>
         </div>
       </div>
+
+      <div>
+          <button id="get-text">Get Text</button>
+      </div>
     </section>
 
     <section class="generated">
 
     </section>
 
-    <section class="the-passage">
-      <p>{{ passage }}</p>
-    </section>
+    <Passage 
+      :passage="passage"
+      :passageInWords="passageInWords"
+     />
   </main>
 </template>
 
 <script>
+import Passage from './Passage.vue';
+
 const defaultType = 'paragraphs';
 const defaultCount = 1;
 
 export default {
   name: 'AppStage',
+  components: {
+    Passage
+  },
   props: {
     msg: String
   },
@@ -61,6 +71,14 @@ export default {
         }
       ],
     }
+  },
+  computed: {
+    passageInWords() {
+      return this.passage.split(' ');
+    },
+    passageInSentences() {
+      return this.passage.split('.').filter(function(n){return n; });
+    },
   },
   mounted() {
     this.setType(defaultType);
@@ -86,6 +104,7 @@ export default {
 
 label {
   display: block;
+  text-align: left;
 }
 
 .type-select {
