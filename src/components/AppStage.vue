@@ -2,6 +2,8 @@
   <main>
     <h1>{{ app }}</h1>
 
+    <p>Provide "lifelike" text for your prototyping projects while simultaneously preparing your end users for the physically and psychologically exhaustive process of crossing into Area X. Win-win!</p>
+
     <section class="selections">
       <div>
         <label for="count">How Many?</label>
@@ -25,7 +27,10 @@
       </div>
 
       <div>
-          <button id="get-text">Get Text</button>
+          <button 
+            id="get-text"
+            @click="getText()"
+          >Get Text</button>
       </div>
     </section>
 
@@ -35,7 +40,7 @@
 
     <Passage 
       :passage="passage"
-      :passageInWords="passageInWords"
+      :passageInWords="passageForCrawler"
      />
   </main>
 </template>
@@ -43,8 +48,8 @@
 <script>
 import Passage from './Passage.vue';
 
-const defaultType = 'paragraphs';
-const defaultCount = 1;
+const defaultType = 'sentences';
+const defaultCount = 6;
 
 export default {
   name: 'AppStage',
@@ -65,20 +70,27 @@ export default {
         },
         {
           name: 'sentences'
-        },
-        {
-          name: 'paragraphs'
         }
       ],
+      finalText: null,
     }
   },
   computed: {
-    passageInWords() {
+    passageForCrawler() {
       return this.passage.split(' ');
     },
-    passageInSentences() {
-      return this.passage.split('. ').filter(function(n){return n; });
+    passageInWords() {
+      return this.masterPassageInWords.split('. ').filter(function(n){return n; });
     },
+    passageInSentences() {
+      return this.masterPassageInSentences.split('. ').filter(function(n){return n; });
+    },
+    masterPassageInSentences() {
+      return [...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences];
+    },
+    masterPassageInWords() {
+      return [...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords];
+    }
   },
   mounted() {
     this.setType(defaultType);
@@ -92,6 +104,19 @@ export default {
     setType(type) {
       this.type = type;
     },
+    getText() {
+      console.log(`GENNING TEXT >>>>>>>>>>>>>>>>>`);
+      let text;
+      let textTypeCount = this.$refs.count.value;
+
+      if (this.type === 'sentences') {
+        text = this.passageInSentences.slice(textTypeCount);
+      } else {
+        text = this.passageInWords.slice(textTypeCount);
+      }
+
+      return text;
+    }
   },
 }
 </script>

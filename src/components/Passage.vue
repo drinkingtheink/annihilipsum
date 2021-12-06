@@ -5,8 +5,8 @@
                 v-for="word, index in passageInWords" 
                 :key="genKey(word, index)" 
                 class="word"
-                :class="{ 'alt': flipCoin() }"
-                :style="{ animationDelay: index + '500ms', fontSize: getRandomInt(2, 4) + 'rem' }"
+                :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin() }"
+                :style="{ animationDelay: index + '50ms', fontSize: getRandomInt(2, 4) + 'rem', transform: '' }"
             >
                 {{ word }}
             </span>
@@ -52,6 +52,16 @@ export default {
 
 .word.alt {
     font-family: 'Permanent Marker', cursive;
+}
+
+.word.alt2 {
+    font-family: 'Smooch', cursive;
+    display: inline-block;
+    transform: rotate(5deg);
+}
+
+.rotate {
+    transform: rotate(5deg);
 }
 
 @keyframes appear {
