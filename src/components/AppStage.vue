@@ -137,18 +137,7 @@ label {
 }
 
 .type-select {
-  text-transform: uppercase;
-  border: 1px solid grey;
-  border-radius: 10px;
-  padding: 0.5rem 1rem;
-  transform: all .2s;
   margin-right: 0.5rem;
-}
-
-.type-select:hover {
-  background-color: black;
-  color: white;
-  cursor: pointer;
 }
 
 .type-select.active {

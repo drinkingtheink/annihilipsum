@@ -27,4 +27,18 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+button {
+  text-transform: uppercase;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transform: all .2s;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
 </style>
