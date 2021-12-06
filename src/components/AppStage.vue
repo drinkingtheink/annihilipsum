@@ -100,12 +100,12 @@ export default {
     },
     getText() {
       console.log(`GENNING TEXT ++++++>>>>>>>>>>>>>>>>>`);
-      let textTypeCount = this.$refs.count.value;
-      let newText;
+      // let textTypeCount = this.$refs.count.value;
+      // let newText;
 
-      if (this.type === 'words') {
-        
-      }
+      // if (this.type === 'words') {
+
+      // }
     }
   },
 }
