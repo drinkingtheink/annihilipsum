@@ -80,16 +80,10 @@ export default {
       return this.passage.split(' ');
     },
     passageInWords() {
-      return this.masterPassageInWords.split('. ').filter(function(n){return n; });
+      return this.passage.split('. ').filter(function(n){return n; });
     },
     passageInSentences() {
-      return this.masterPassageInSentences.split('. ').filter(function(n){return n; });
-    },
-    masterPassageInSentences() {
-      return [...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences, ...this.passageInSentences];
-    },
-    masterPassageInWords() {
-      return [...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords, ...this.passageInWords];
+      return this.passage.split(' ');
     }
   },
   mounted() {
@@ -105,17 +99,13 @@ export default {
       this.type = type;
     },
     getText() {
-      console.log(`GENNING TEXT >>>>>>>>>>>>>>>>>`);
-      let text;
+      console.log(`GENNING TEXT ++++++>>>>>>>>>>>>>>>>>`);
       let textTypeCount = this.$refs.count.value;
+      let newText;
 
-      if (this.type === 'sentences') {
-        text = this.passageInSentences.slice(textTypeCount);
-      } else {
-        text = this.passageInWords.slice(textTypeCount);
+      if (this.type === 'words') {
+        
       }
-
-      return text;
     }
   },
 }
