@@ -56,9 +56,6 @@ export default {
   components: {
     Passage
   },
-  props: {
-    msg: String
-  },
   data() {
     return {
       app: 'Annihilipsum Generator',
