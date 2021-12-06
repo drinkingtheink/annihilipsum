@@ -35,7 +35,7 @@
     </section>
 
     <section class="generated">
-
+      <p v-if="finalText">{{ finalText }}></p>
     </section>
 
     <Passage 
@@ -79,10 +79,10 @@ export default {
     passageForCrawler() {
       return this.passage.split(' ');
     },
-    passageInWords() {
+    passageInSentences() {
       return this.passage.split('. ').filter(function(n){return n; });
     },
-    passageInSentences() {
+    passageInWords() {
       return this.passage.split(' ');
     }
   },
@@ -100,12 +100,11 @@ export default {
     },
     getText() {
       console.log(`GENNING TEXT ++++++>>>>>>>>>>>>>>>>>`);
-      // let textTypeCount = this.$refs.count.value;
-      // let newText;
+      let textTypeCount = this.$refs.count.value;
 
-      // if (this.type === 'words') {
-
-      // }
+      if (this.type === 'sentences') {
+        this.finalText = this.passageInSentences.slice(0, textTypeCount);
+      }
     }
   },
 }
