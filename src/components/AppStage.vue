@@ -35,7 +35,17 @@
     </section>
 
     <section class="generated">
-      <p v-if="finalText">{{ finalText }}></p>
+      <p 
+        v-if="formattedFinalText"
+        class="final-text"
+      >{{ formattedFinalText }}</p>
+
+      <div class="text-actions">
+        <button 
+          class="copy-text"
+          @click="copyText()"
+        >Copy Text</button>
+      </div>
     </section>
 
     <Passage 
@@ -81,6 +91,10 @@ export default {
     },
     passageInWords() {
       return this.passage.split(' ');
+    },
+    formattedFinalText() {
+      let newFinalText = this.finalText ? this.finalText.toString().replace('[', '').replace(']', '').replace(',', ' ') : null
+      return newFinalText ? newFinalText : null;
     }
   },
   mounted() {
@@ -96,12 +110,16 @@ export default {
       this.type = type;
     },
     getText() {
-      console.log(`GENNING TEXT ++++++>>>>>>>>>>>>>>>>>`);
       let textTypeCount = this.$refs.count.value;
 
       if (this.type === 'sentences') {
         this.finalText = this.passageInSentences.slice(0, textTypeCount);
+      } else {
+        this.finalText = this.passageInWords.slice(0, textTypeCount);
       }
+    },
+    copyText() {
+      console.log(`+++++++ COPYING TEXT +++++++`)
     }
   },
 }
@@ -140,7 +158,24 @@ label {
 .generated {
   min-height: 15rem;
   background-color: #ccc;
-  margin: 2rem 0;
+  margin: 1rem 0;
+  padding: 0.5rem 1.5rem 3rem 1.5rem;
+  border-radius: 10px;
+  position: relative;
+  text-align: left;
+}
+
+.generated .final-text {
+  padding-bottom: 1rem;
+}
+
+.generated .text-actions {
+  position: absolute;
+  padding-top: 1rem;
+  width: 95%;
+  height: 2rem;
+  bottom: 0.5rem;
+  border-top: 1px solid rgba(0,0,0,0.2);
 }
 
 input {
@@ -148,7 +183,7 @@ input {
 }
 
 input[type="number"] {
-  width: 3rem;
+  width: 4rem;
   text-align: center;
   border-radius: 10px;
 }
