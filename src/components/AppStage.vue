@@ -4,47 +4,52 @@
 
     <p>Provide "lifelike" text for your prototyping projects while simultaneously preparing your end users for the physically and psychologically exhaustive process of crossing into Area X. Win-win!</p>
 
-    <section class="selections">
-      <div>
-        <label for="count">How Many?</label>
-        <input type="number" id="count" ref="count" />
-      </div>
+    <section class="generated-stage">
+      <div class="toolbox">
+        <section class="selections">
+          <div>
+            <label for="count">How Many?</label>
+            <input type="number" id="count" ref="count" />
+          </div>
 
-      <div>
-        <label for="count">Of What?</label>
-      
-        <div class="type-selection">
-          <button 
-            v-for="option in typeOptions" 
-            :key="option.name" 
-            class="type-select"
-            :class="{ 'active': option.name === type }"
-            @click="setType(option.name)"
-          >
-            {{ option.name }}
-          </button>
-        </div>
-      </div>
+          <div>
+            <label for="count">Of What?</label>
+          
+            <div class="type-selection">
+              <button 
+                v-for="option in typeOptions" 
+                :key="option.name" 
+                class="type-select"
+                :class="{ 'active': option.name === type }"
+                @click="setType(option.name)"
+              >
+                {{ option.name }}
+              </button>
+            </div>
+          </div>
 
-      <div>
-          <button 
-            id="get-text"
-            @click="getText()"
-          >Get Text</button>
-      </div>
-    </section>
+          <div>
+              <button 
+                id="get-text"
+                @click="getText()"
+              >Get Text</button>
+          </div>
+        </section>
 
-    <section class="generated">
-      <p 
-        v-if="formattedFinalText"
-        class="final-text"
-      >{{ formattedFinalText }}</p>
+        <section class="generated">
+          <p 
+            v-if="formattedFinalText"
+            class="final-text"
+            id="final-text"
+          >{{ formattedFinalText }}</p>
 
-      <div class="text-actions">
-        <button 
-          class="copy-text"
-          @click="copyText()"
-        >Copy Text</button>
+          <div class="text-actions">
+            <button 
+              class="copy-text"
+              @click="copyText()"
+            >Copy Text</button>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -93,13 +98,21 @@ export default {
       return this.passage.split(' ');
     },
     formattedFinalText() {
-      let newFinalText = this.finalText ? this.finalText.toString().replace('[', '').replace(']', '').replace(',', ' ') : null
+      let newFinalText;
+
+      if (this.type === 'sentences') {
+        newFinalText = this.finalText ? this.finalText.toString().replace('[', '').replace(']', '') : null;
+      } else {
+        newFinalText = this.finalText;
+      }
+      
       return newFinalText ? newFinalText : null;
     }
   },
   mounted() {
     this.setType(defaultType);
     this.$refs.count.value = defaultCount;
+    this.getText();
     this.focusInput();
   },
   methods: {
@@ -126,6 +139,10 @@ export default {
 </script>
 
 <style scoped>
+main {
+  position: relative;
+}
+
 .selections {
   display: flex;
   justify-content: space-around;
@@ -134,6 +151,8 @@ export default {
 label {
   display: block;
   text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .type-select {
@@ -144,11 +163,25 @@ label {
   background-color: red;
 }
 
+.generated-stage {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.toolbox {
+  max-width: 700px;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  background-color: white;
+}
+
 .generated {
-  min-height: 15rem;
   background-color: #ccc;
   margin: 1rem 0;
-  padding: 0.5rem 1.5rem 3rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 10px;
   position: relative;
   text-align: left;
@@ -159,12 +192,15 @@ label {
 }
 
 .generated .text-actions {
-  position: absolute;
-  padding-top: 1rem;
-  width: 95%;
-  height: 2rem;
-  bottom: 0.5rem;
   border-top: 1px solid rgba(0,0,0,0.2);
+  padding: 0.5rem 0;
+}
+
+.the-passage {
+  position: relative;
+  z-index: 1;
+  margin-top: -30rem;
+  max-width: 1400px;
 }
 
 input {
