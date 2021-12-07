@@ -5,7 +5,7 @@
                 v-for="word, index in passageInWords" 
                 :key="genKey(word, index)" 
                 class="word"
-                :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin() }"
+                :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin(), 'blurred': flipCoin() }"
                 :style="{ animationDelay: index + '50ms', fontSize: getRandomInt(2, 4) + 'rem' }"
             >
                 {{ word }}
@@ -54,6 +54,7 @@ export default {
 
 .word:hover {
     color: red;
+    filter: blur(0);
 }
 
 .word.alt {
@@ -68,6 +69,10 @@ export default {
 
 .rotate {
     transform: rotate(5deg);
+}
+
+.blurred {
+    filter: blur(4px);
 }
 
 @keyframes appear {
