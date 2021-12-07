@@ -6,7 +6,7 @@
                 :key="genKey(word, index)" 
                 class="word"
                 :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin() }"
-                :style="{ animationDelay: index + '50ms', fontSize: getRandomInt(2, 4) + 'rem', transform: '' }"
+                :style="{ animationDelay: index + '50ms', fontSize: getRandomInt(2, 4) + 'rem' }"
             >
                 {{ word }}
             </span>
@@ -48,6 +48,12 @@ export default {
     opacity: 0;
     font-family: 'Comforter Brush', cursive;
     font-size: 2.25rem;
+    color: #EE9B00;
+    transition: all .2s;
+}
+
+.word:hover {
+    color: red;
 }
 
 .word.alt {

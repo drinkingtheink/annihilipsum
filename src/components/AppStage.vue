@@ -2,7 +2,7 @@
   <main>
     <h1>{{ app }}</h1>
 
-    <p>Provide "lifelike" text for your prototyping projects while simultaneously preparing your end users for the physically and psychologically exhaustive process of crossing into Area X. Win-win!</p>
+    <p class="description">Provide "lifelike" text for your prototyping projects while simultaneously conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X. - The Southern Reach</p>
 
     <section class="generated-stage">
       <div class="toolbox">
@@ -101,7 +101,7 @@ export default {
       let newFinalText;
 
       if (this.type === 'sentences') {
-        newFinalText = this.finalText ? this.finalText.toString().replace('[', '').replace(']', '') : null;
+        newFinalText = this.finalText ? this.finalText.toString() : null;
       } else {
         newFinalText = this.finalText;
       }
@@ -143,6 +143,12 @@ main {
   position: relative;
 }
 
+.description {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
 .selections {
   display: flex;
   justify-content: space-around;
@@ -167,7 +173,6 @@ label {
   display: flex;
   justify-content: center;
   position: relative;
-  z-index: 10;
 }
 
 .toolbox {
@@ -176,10 +181,12 @@ label {
   border-radius: 10px;
   padding: 0.5rem 1rem;
   background-color: white;
+  z-index: 10;
+  position: relative;
 }
 
 .generated {
-  background-color: #ccc;
+  background-color: #e0e0e0;
   margin: 1rem 0;
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
@@ -197,9 +204,9 @@ label {
 }
 
 .the-passage {
-  position: relative;
+  position: absolute;
+  top: 20rem;
   z-index: 1;
-  margin-top: -30rem;
   max-width: 1400px;
 }
 
