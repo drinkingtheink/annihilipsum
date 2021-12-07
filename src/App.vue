@@ -1,16 +1,19 @@
 <template>
   <div id="app">
+    <Background class="background" />
     <AppStage/>
   </div>
 </template>
 
 <script>
 import AppStage from './components/AppStage.vue'
+import Background from './components/Background.vue'
 
 export default {
   name: 'App',
   components: {
-    AppStage
+    AppStage,
+    Background
   }
 }
 </script>
@@ -44,6 +47,12 @@ export default {
 
 html, body {
   background-color: #001219 !important;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -70,5 +79,15 @@ button:hover {
   background-color: black;
   color: white;
   cursor: pointer;
+}
+
+.background {
+  position: absolute;
+  top: -20rem;
+  width: 120vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: scale(1.5);
 }
 </style>

@@ -206,8 +206,11 @@ label {
 .the-passage {
   position: absolute;
   top: 20rem;
+  left: 0;
+  right: 0;
+  margin: auto;
   z-index: 1;
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
 input {
