@@ -54,7 +54,8 @@ export default {
 .word {
     animation: appear;
     animation-duration: 2s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: both;
+    animation-direction: alternate;
     opacity: 0;
     font-family: 'Comforter Brush', cursive;
     font-size: 2.25rem;
