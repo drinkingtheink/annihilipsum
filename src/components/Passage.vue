@@ -61,6 +61,7 @@ export default {
     color: #EE9B00;
     transition: all .2s;
     display: inline-block;
+    margin-right: 8px;
 }
 
 .word:hover {
