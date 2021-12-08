@@ -45,7 +45,7 @@
             v-if="formattedFinalText"
             class="final-text"
             id="final-text"
-          >{{ formattedFinalText }}</p>
+          >{{ formattedFinalText }}</p><span class="blinking-cursor">|</span>
 
           <div class="text-actions">
             <button 
@@ -232,7 +232,8 @@ label {
 }
 
 .generated .final-text {
-  padding-bottom: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .generated .text-actions {
@@ -273,5 +274,21 @@ li {
 }
 a {
   color: #42b983;
+}
+
+@keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 30px;
+  color: #2E3D48;
+  animation: 1s blink step-end infinite;
 }
 </style>
