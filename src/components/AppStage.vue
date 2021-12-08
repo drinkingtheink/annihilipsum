@@ -84,10 +84,10 @@ export default {
       type: null,
       typeOptions: [
         {
-          name: 'words'
+          name: 'sentences'
         },
         {
-          name: 'sentences'
+          name: 'words'
         }
       ],
       finalText: null,
@@ -177,6 +177,10 @@ h1 {
 .selections {
   display: flex;
   justify-content: space-around;
+}
+
+.selections div {
+  text-align: left;
 }
 
 label {
