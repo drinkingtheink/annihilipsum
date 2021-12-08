@@ -83,14 +83,23 @@ button {
   text-transform: uppercase;
   border: 1px solid grey;
   border-radius: 10px;
-  padding: 0.5rem 1rem;
-  transform: all .2s;
+  padding: 0.5rem 2rem;
+  transition: all .2s;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  background-color: #001219;
+  border-color: #001219;
+  color: #EE9B00;
 }
 
 button:hover {
-  background-color: black;
+  background-color: #005F73;
   color: white;
   cursor: pointer;
+}
+
+button.active {
+  color: white;
 }
 
 .background {

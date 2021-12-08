@@ -32,6 +32,7 @@
           </div>
 
           <div>
+              <label for="get-text">For You:</label>
               <button 
                 id="get-text"
                 @click="getText()"
