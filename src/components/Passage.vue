@@ -5,7 +5,7 @@
                 v-for="word, index in passageInWords" 
                 :key="genKey(word, index)" 
                 class="word"
-                :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin(), 'blurred': flipCoin(), 'blue-green': flipCoin() }"
+                :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin(), 'blurred': flipCoin(), 'blue-green': flipCoin(), 'need-help': flipCoin(), 'need-wait': flipCoin(), 'need-drop': flipCoin() }"
                 :style="{ animationDelay: index + '50ms', fontSize: getRandomInt(2, 4) + 'rem' }"
             >
                 {{ word }}
@@ -70,6 +70,18 @@ export default {
 
 .word.blue-green {
     color: #0A9396;
+}
+
+.word.need-help {
+    cursor: help;
+}
+
+.word.need-wait {
+    cursor: wait;
+}
+
+.word.need-drop {
+    cursor: no-drop;
 }
 
 .rotate {
