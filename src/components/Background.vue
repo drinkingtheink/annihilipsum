@@ -160,5 +160,78 @@ export default {
 </script>
 
 <style scoped>
-.cls-1{fill:url(#linear-gradient);}.cls-2{fill:#e9d8a5;}.cls-3{fill:#0a9396;}.cls-4{fill:#015f73;}.cls-5{fill:#94d2be;}.cls-6{opacity:0.19;fill:url(#linear-gradient-2);}.cls-7{opacity:0.29;fill:url(#linear-gradient-3);}.cls-8{opacity:0.52;fill:url(#linear-gradient-4);}.cls-9{fill:#021218;}.cls-10{fill:url(#radial-gradient);}.cls-11{fill:url(#radial-gradient-2);}.cls-12{fill:#ee9b00;}.cls-13{fill:#e9d8a6;}.cls-14{fill:#e9d9a6;}.cls-15{fill:#001319;}.cls-16{fill:#fff;}
+.cls-1{
+    fill:url(#linear-gradient);
+}
+.cls-2{
+    fill:#e9d8a5;
+}
+.cls-3{
+    fill:#0a9396;
+}
+.cls-4{
+    fill:#015f73;
+}
+.cls-5{
+    fill:#94d2be;
+}
+.cls-6{
+    opacity:0.19;
+    fill:url(#linear-gradient-2);
+}
+.cls-7{
+    opacity:0.29;
+    fill:url(#linear-gradient-3);
+}
+.cls-8{
+    opacity:0.52;
+    fill:url(#linear-gradient-4);
+}
+.cls-9{
+    fill:#021218;
+}
+.cls-10{
+    fill:url(#radial-gradient);
+}
+.cls-11{
+    fill:url(#radial-gradient-2);
+}
+.cls-12{
+    fill:#ee9b00;
+}
+.cls-13{
+    fill:#e9d8a6;
+}
+.cls-14{
+    fill:#e9d9a6;
+}
+.cls-15{
+    fill:#001319;
+}
+.cls-16{
+    fill:#fff;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    1% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#lighthouse-light-large,
+#lighthouse-light-small {
+    animation: blink 6s infinite;
+    animation-fill-mode: both;
+    animation-delay: 10s;
+}
+
+#lighthouse-light-large {
+    animation-delay: 3.5s;
+}
 </style>
