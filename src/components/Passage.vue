@@ -1,11 +1,11 @@
 <template>
     <div class="the-passage">
-        <p>
+        <p v-if="preppedPassage">
             <span 
-                v-for="word, index in passageInWords" 
+                v-for="word, index in preppedPassage" 
                 :key="genKey(word, index)" 
                 class="word"
-                :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin(), 'blurred': flipCoin(), 'blue-green': flipCoin(), 'need-help': flipCoin(), 'need-wait': flipCoin(), 'need-drop': flipCoin() }"
+                :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin(), 'blurred': flipCoin(), 'blue-green': flipCoin(), 'need-help': flipCoin(), 'need-drop': flipCoin() }"
                 :style="{ animationDelay: index + '50ms', fontSize: getRandomInt(2, 4) + 'rem' }"
             >
                 {{ word }}
@@ -20,6 +20,16 @@ export default {
     props: {
         passage: String,
         passageInWords: Array
+    },
+    data() {
+        return {
+            preppedPassage: null,
+        }
+    },
+    mounted() {
+        if (this.passageInWords) {
+            this.preppedPassage = this.passageInWords;
+        }
     },
     methods: {
         genAniDelay() {
