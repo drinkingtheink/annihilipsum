@@ -50,7 +50,9 @@
           <div class="text-actions">
             <button 
               class="copy-text"
-              @click="copyText()"
+              v-clipboard:copy="finalText"
+              v-clipboard:success="onCopy"
+              v-clipboard:error="onError"
             >Copy Text</button>
           </div>
         </section>
@@ -137,8 +139,11 @@ export default {
         this.finalText = this.passageInWords.slice(0, textTypeCount);
       }
     },
-    copyText() {
-      console.log(`+++++++ COPYING TEXT +++++++`)
+    onCopy() {
+      console.log(`+++++++ COPIED TEXT!!!!!!!!! +++++++`);
+    },
+    onError() {
+      console.log(`+++++++ OH NOOOOOOO!!!!!!!!! +++++++`);
     }
   },
 }
