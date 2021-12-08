@@ -140,7 +140,7 @@ export default {
       }
     },
     onCopy() {
-      console.log(`+++++++ COPIED TEXT!!!!!!!!! +++++++`);
+      alert(`+++++++ COPIED TEXT!!!!!!!!! +++++++`);
     },
     onError() {
       console.log(`+++++++ OH NOOOOOOO!!!!!!!!! +++++++`);
