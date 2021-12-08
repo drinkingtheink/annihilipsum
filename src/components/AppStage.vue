@@ -183,6 +183,7 @@ label {
   text-align: left;
   text-transform: uppercase;
   font-weight: bold;
+  color: #EE9B00;
 }
 
 .type-select {
@@ -204,9 +205,10 @@ label {
   border: 2px solid rgba(0,0,0,0.2);
   border-radius: 10px;
   padding: 0.5rem 1rem;
-  background-color: white;
+  background-color: #005F73;
   z-index: 10;
   position: relative;
+  box-shadow: 1px 8px 15px 5px rgba(0,0,0,0.6);
 }
 
 .generated {

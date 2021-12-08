@@ -60,7 +60,7 @@ body {
 h1 {
   color: #94D2BD;
   margin: 0;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   font-size: 3rem;
 }
 
