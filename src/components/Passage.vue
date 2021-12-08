@@ -1,6 +1,9 @@
 <template>
     <div class="the-passage">
-        <p v-if="preppedPassage">
+        <p 
+            v-if="preppedPassage"
+            @click="goToInfoLink()"
+        >
             <span 
                 v-for="word, index in preppedPassage" 
                 :key="genKey(word, index)" 
@@ -24,6 +27,7 @@ export default {
     data() {
         return {
             preppedPassage: null,
+            aboutIncantationLink: 'https://southernreach.fandom.com/wiki/Tower_incantation',
         }
     },
     mounted() {
@@ -32,9 +36,6 @@ export default {
         }
     },
     methods: {
-        genAniDelay() {
-            return `0.4s`
-        },
         genKey(word, index) {
             return `${word}-${index}`;
         },
@@ -45,6 +46,10 @@ export default {
         },
         flipCoin() {
             return Math.random() > 0.8 ? true : false;
+        },
+        goToInfoLink() {
+            console.log(`GOING TO INFO LINK`);
+            window.open(this.aboutIncantationLink);
         }
     }
 }

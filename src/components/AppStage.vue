@@ -54,6 +54,21 @@
               v-clipboard:success="onCopy"
               v-clipboard:error="onError"
             >Copy Text</button>
+
+            <a 
+              href="https://www.jeffvandermeer.com/book/area-x/"
+              target="_blank"
+            >WTF?</a>
+
+            <a 
+              href="https://github.com/drinkingtheink/annihilipsum"
+              target="_blank"
+            >About this Project</a>
+
+            <a 
+              href="https://drinkingtheink.github.io/"
+              target="_blank"
+            >About the Author</a>
           </div>
         </section>
       </div>
@@ -243,6 +258,16 @@ label {
 .generated .text-actions {
   border-top: 1px solid rgba(0,0,0,0.2);
   padding: 0.5rem 0;
+}
+
+.text-actions a {
+  margin: 0 1rem;
+  color: #9B2226;
+  text-decoration: none;
+}
+
+.text-actions a:hover {
+  color: #0A9396;
 }
 
 .the-passage {
