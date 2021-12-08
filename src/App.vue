@@ -49,7 +49,7 @@ export default {
 html, body {
   background-color: #001219 !important;
   position: relative;
-  border-top: 5px solid #0A9396;
+  border-top: 5px solid #94D2BD;
 }
 
 body {
