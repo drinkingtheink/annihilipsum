@@ -150,6 +150,8 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
 main {
   position: relative;
 }
@@ -219,6 +221,7 @@ label {
   z-index: 10;
   position: relative;
   box-shadow: 1px 8px 15px 5px rgba(0,0,0,0.6);
+  transition: all .2s;
 }
 
 .generated {
@@ -234,6 +237,7 @@ label {
 .generated .final-text {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .generated .text-actions {
@@ -286,8 +290,7 @@ a {
 }
 
 .blinking-cursor {
-  font-weight: 100;
-  font-size: 30px;
+  font-weight: 800;
   color: #2E3D48;
   animation: 1s blink step-end infinite;
 }
