@@ -2,7 +2,10 @@
   <main>
     <h1>{{ app }}</h1>
 
-    <p class="description">Provide "lifelike" text for your prototyping projects while simultaneously conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X. - The Southern Reach</p>
+    <section class="description-stage">
+      <SRLogo class="sr-logo" />
+      <p class="description">Provide lifelike text for your prototyping projects while simultaneously conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X.</p>
+    </section>
 
     <section class="generated-stage">
       <div class="toolbox">
@@ -62,6 +65,7 @@
 
 <script>
 import Passage from './Passage.vue';
+import SRLogo from './SRLogo.vue';
 
 const defaultType = 'sentences';
 const defaultCount = 6;
@@ -69,7 +73,8 @@ const defaultCount = 6;
 export default {
   name: 'AppStage',
   components: {
-    Passage
+    Passage,
+    SRLogo
   },
   data() {
     return {
@@ -147,11 +152,22 @@ h1 {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
-.description {
-  max-width: 800px;
+.description-stage {
+  display: flex;
+  justify-content: center;
   margin: 1rem auto 2rem auto;
+  max-width: 800px;
+}
+
+.description-stage .sr-logo {
+  width: 8rem;
+  margin-right: 1rem;
+}
+
+.description {
   color: #001219;
   font-weight: bold;
+  text-align: left;
 }
 
 .selections {
