@@ -65,6 +65,9 @@ h1 {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
 }
 
 button {
@@ -83,11 +86,9 @@ button:hover {
 
 .background {
   position: absolute;
-  top: -20rem;
-  width: 120vw;
+  width: 100%;
   left: 0;
   right: 0;
   margin: auto;
-  transform: scale(1.5);
 }
 </style>

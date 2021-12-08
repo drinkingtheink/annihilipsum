@@ -143,10 +143,15 @@ main {
   position: relative;
 }
 
+h1 {
+  margin: 0;
+}
+
 .description {
-  max-width: 600px;
-  margin: 0 auto;
-  padding-bottom: 2rem;
+  max-width: 800px;
+  margin: 1rem auto 2rem auto;
+  color: #001219;
+  font-weight: bold;
 }
 
 .selections {
@@ -205,7 +210,7 @@ label {
 
 .the-passage {
   position: absolute;
-  top: 20rem;
+  top: 25rem;
   left: 0;
   right: 0;
   margin: auto;
