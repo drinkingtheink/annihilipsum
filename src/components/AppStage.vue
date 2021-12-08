@@ -4,7 +4,7 @@
 
     <section class="description-stage">
       <SRLogo class="sr-logo" />
-      <p class="description">Provide lifelike text for your prototyping projects while simultaneously conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X.</p>
+      <p class="description">Provide lifelike text for your prototyping projects while simultaneously <em>conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X</em>.</p>
     </section>
 
     <section class="generated-stage">
@@ -155,19 +155,22 @@ h1 {
 .description-stage {
   display: flex;
   justify-content: center;
-  margin: 1rem auto 2rem auto;
+  margin: 0 auto;
   max-width: 800px;
 }
 
 .description-stage .sr-logo {
-  width: 8rem;
+  width: 10rem;
   margin-right: 1rem;
 }
 
 .description {
   color: #001219;
   font-weight: bold;
+  font-size: 1.1rem;
   text-align: left;
+  border-left: 1px solid rgba(0,0,0,0.5);
+  padding-left: 1rem;
 }
 
 .selections {
