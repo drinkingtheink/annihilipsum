@@ -93,8 +93,8 @@ button {
 }
 
 button:hover {
-  background-color: #005F73;
-  color: white;
+  background-color: #EE9B00;
+  color: red;
   cursor: pointer;
 }
 
