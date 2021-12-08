@@ -3,7 +3,7 @@
     <h1>{{ app }}</h1>
 
     <section class="description-stage">
-      <SRLogo class="sr-logo" />
+      <SRLogo  class="sr-logo" />
       <p class="description">Provide lifelike text for your prototyping projects while simultaneously <em>conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X</em>.</p>
     </section>
 
@@ -50,10 +50,11 @@
           <div class="text-actions">
             <button 
               class="copy-text"
+              :class="{ 'confirm-copy': confirmCopy }"
               v-clipboard:copy="finalText"
               v-clipboard:success="onCopy"
               v-clipboard:error="onError"
-            >Copy Text</button>
+            >{{ confirmCopy ? 'Text Copied!' : 'Copy Text' }}</button>
 
             <a 
               href="https://www.jeffvandermeer.com/book/area-x/"
@@ -108,6 +109,7 @@ export default {
         }
       ],
       finalText: null,
+      confirmCopy: false,
     }
   },
   computed: {
@@ -130,6 +132,13 @@ export default {
       }
       
       return newFinalText ? newFinalText : null;
+    },
+  },
+  watch: {
+    confirmCopy: function() {
+      if (this.confirmCopy) {
+        setTimeout(() => this.confirmCopy = false, 1000);
+      }
     }
   },
   mounted() {
@@ -155,11 +164,11 @@ export default {
       }
     },
     onCopy() {
-      alert(`+++++++ COPIED TEXT!!!!!!!!! +++++++`);
+      this.confirmCopy = true;
     },
     onError() {
-      console.log(`+++++++ OH NOOOOOOO!!!!!!!!! +++++++`);
-    }
+      console.log(` An error occured trying to copy the text. Please try again. - The Southern Reach `);
+    },
   },
 }
 </script>
@@ -268,6 +277,13 @@ label {
 
 .text-actions a:hover {
   color: #0A9396;
+}
+
+button.copy-text.confirm-copy {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: #0A9396;
+  color: red;
 }
 
 .the-passage {

@@ -48,7 +48,6 @@ export default {
             return Math.random() > 0.8 ? true : false;
         },
         goToInfoLink() {
-            console.log(`GOING TO INFO LINK`);
             window.open(this.aboutIncantationLink);
         }
     }
