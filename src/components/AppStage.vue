@@ -112,7 +112,7 @@ export default {
       return this.passage.split(' ');
     },
     passageInSentences() {
-      return this.passage.split('. ');
+      return this.passage.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
     },
     passageInWords() {
       return this.passage.split(' ');
@@ -158,7 +158,7 @@ export default {
         
       } else if (this.type === 'sentences') {
         // using sentences so get sentences
-        this.finalText = this.passageInSentences.slice(0, textTypeCount).toString();
+        this.finalText = this.passageInSentences.slice(0, textTypeCount).join('. ');
       } else if (this.type === 'words') {
         // using words so get words
         this.finalText = this.passageInWords.slice(0, textTypeCount).join(' ');
@@ -238,7 +238,7 @@ label {
 }
 
 .toolbox {
-  max-width: 700px;
+  width: 700px;
   border: 5px solid rgba(0,0,0,0.2);
   border-radius: 10px;
   padding: 0.5rem 1rem;
@@ -306,7 +306,7 @@ input {
 }
 
 input[type="number"] {
-  width: 4rem;
+  width: 5rem;
   text-align: center;
   border-radius: 10px;
 }
