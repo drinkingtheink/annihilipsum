@@ -275,7 +275,7 @@ label {
 
 .text-actions a {
   margin: 0 1rem;
-  color: #9B2226;
+  color: red;
   text-decoration: none;
 }
 
