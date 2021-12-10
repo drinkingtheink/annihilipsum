@@ -40,8 +40,9 @@
               id="final-text"
               v-html="formattedFinalText"
             ></p><span class="blinking-cursor">|</span>
+        </section>
 
-          <div class="text-actions">
+        <div class="text-actions">
             <button 
               class="copy-text"
               :class="{ 'confirm-copy': confirmCopy }"
@@ -64,8 +65,7 @@
               href="https://drinkingtheink.github.io/"
               target="_blank"
             >About the Author</a>
-          </div>
-        </section>
+        </div>
       </div>
     </section>
 
@@ -263,12 +263,14 @@ label {
 
 .generated {
   background-color: #e0e0e0;
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem 0;
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
   position: relative;
   text-align: left;
   border: 5px solid rgba(0,0,0,0.2);
+  max-height: 550px;
+  overflow: auto;
 }
 
 .generated .final-text {
@@ -284,16 +286,17 @@ label {
 
 .text-actions a {
   margin: 0 1rem;
-  color: red;
+  color: #94D2BD;
   text-decoration: none;
 }
 
 .text-actions a:hover {
-  color: #0A9396;
+  color: red;
 }
 
 button.copy-text {
   margin-right: 2rem;
+  width: 13rem;
 }
 
 button.copy-text.confirm-copy {
