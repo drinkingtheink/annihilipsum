@@ -12,7 +12,7 @@
         <section class="selections">
           <div>
             <label for="count">How Many?</label>
-            <input type="number" id="count" ref="count" />
+            <input type="number" id="count" ref="count" @change="getText()" />
           </div>
 
           <div>
@@ -29,14 +29,6 @@
                 {{ option.name }}
               </button>
             </div>
-          </div>
-
-          <div>
-              <label for="get-text">For You:</label>
-              <button 
-                id="get-text"
-                @click="getText()"
-              >Get Text</button>
           </div>
         </section>
 
@@ -105,6 +97,9 @@ export default {
           name: 'paragraphs'
         },
         {
+          name: 'sentences'
+        },
+        {
           name: 'words'
         }
       ],
@@ -117,7 +112,7 @@ export default {
       return this.passage.split(' ');
     },
     passageInSentences() {
-      return this.passage.split('. ').filter(function(n){return n; });
+      return this.passage.split('. ').filter(function(n){ return n; });
     },
     passageInWords() {
       return this.passage.split(' ');
@@ -139,6 +134,9 @@ export default {
       if (this.confirmCopy) {
         setTimeout(() => this.confirmCopy = false, 1000);
       }
+    },
+    type: function() {
+      this.getText();
     }
   },
   mounted() {
@@ -162,9 +160,12 @@ export default {
       } else if (this.type === 'paragraphs' && textTypeCount > 1) {
         // if greater than, copy as many times as needed
         
-      } else {
+      } else if (this.type === 'sentences') {
+        // using sentences so get sentences
+        this.finalText = this.passageInSentences.slice(0, textTypeCount).toString();
+      } else if (this.type === 'words') {
         // using words so get words
-        this.finalText = this.passageInWords.slice(0, textTypeCount);
+        this.finalText = this.passageInWords.slice(0, textTypeCount).toString();
       }
     },
     onCopy() {
@@ -290,7 +291,7 @@ button.copy-text {
 button.copy-text.confirm-copy {
   padding-left: 3rem;
   padding-right: 3rem;
-  background-color: #0A9396;
+  background-color: #94D2BD;
   color: red;
 }
 
