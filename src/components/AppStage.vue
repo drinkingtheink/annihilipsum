@@ -12,7 +12,7 @@
         <section class="selections">
           <div>
             <label for="count">How Many?</label>
-            <input type="number" id="count" ref="count" @change="getText()" />
+            <input type="number" id="count" ref="count" @change="genText()" />
           </div>
 
           <div>
@@ -112,7 +112,7 @@ export default {
       return this.passage.split(' ');
     },
     passageInSentences() {
-      return this.passage.split('. ').filter(function(n){ return n; });
+      return this.passage.split('. ');
     },
     passageInWords() {
       return this.passage.split(' ');
@@ -120,11 +120,7 @@ export default {
     formattedFinalText() {
       let newFinalText;
 
-      if (this.type === 'paragraphs') {
-        newFinalText = this.finalText ? this.finalText.toString() : null;
-      } else {
-        newFinalText = this.finalText;
-      }
+      newFinalText = this.finalText;
       
       return newFinalText ? newFinalText : null;
     },
@@ -136,13 +132,13 @@ export default {
       }
     },
     type: function() {
-      this.getText();
+      this.genText();
     }
   },
   mounted() {
     this.setType(defaultType);
     this.$refs.count.value = defaultCount;
-    this.getText();
+    this.genText();
     this.focusInput();
   },
   methods: {
@@ -152,7 +148,7 @@ export default {
     setType(type) {
       this.type = type;
     },
-    getText() {
+    genText() {
       let textTypeCount = this.$refs.count.value;
 
       if (this.type === 'paragraphs' && textTypeCount == 1) {
@@ -165,7 +161,7 @@ export default {
         this.finalText = this.passageInSentences.slice(0, textTypeCount).toString();
       } else if (this.type === 'words') {
         // using words so get words
-        this.finalText = this.passageInWords.slice(0, textTypeCount).toString();
+        this.finalText = this.passageInWords.slice(0, textTypeCount).join(' ');
       }
     },
     onCopy() {
