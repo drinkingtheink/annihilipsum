@@ -88,7 +88,7 @@ button {
   font-family: 'Bebas Neue', cursive;
   font-size: 1.5rem;
   background-color: #001219;
-  border: 3px solid rgba(black, 0.3);
+  border: 3px solid rgba(0,0,0,0.4);
   color: #EE9B00;
 }
 

@@ -171,12 +171,18 @@ export default {
         this.finalText = this.passageInSentences.slice(0, textTypeCount).join('</p><p>').toString();
 
       } else if (this.type === 'sentences' && (textTypeCount > this.passageInSentences.length)) {
-        // need to increase amount of sentences in passageInSentences then take what's needed
-        let currentSentences = `${this.passageInSentences}`;
+        let currentSentences = [...this.passageInSentences];
+        let howManyTimes = textTypeCount - this.passageInSentences.length;
 
-        this.finalText = currentSentences;
+        for (let step = 0; step < howManyTimes; step++) {
+          this.passageInSentences.forEach((passage) => {
+            currentSentences.push(passage);
+          })
+        }
 
-      } else if (this.type === 'words') {
+        this.finalText = currentSentences.slice(0, textTypeCount).join('</p><p>').toString();
+
+      } else if (this.type === 'words' && (textTypeCount < this.passageInWords.length)) {
         // using words so get words
         this.finalText = this.passageInWords.slice(0, textTypeCount).join(' ');
 
@@ -332,7 +338,7 @@ input[type="number"] {
   width: 5rem;
   text-align: center;
   border-radius: 10px;
-  border: 4px solid rgba(0,0,0,0.4);
+  border: 3px solid rgba(0,0,0,0.4);
   color: red;
   font-family: 'Permanent Marker', cursive;
 }
