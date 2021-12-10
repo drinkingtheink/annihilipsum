@@ -156,21 +156,26 @@ export default {
       if (this.type === 'paragraphs' && textTypeCount == 1) {
         this.finalText = this.passage.toString();
       } else if (this.type === 'paragraphs' && textTypeCount > 1) {
-        // if greater than, copy as many times as needed
         let currentParagraphs = `${this.passage}`;
         for (let step = 0; step < textTypeCount; step++) {
-          // Go through as many times as necessary to get needed amt of paragraphs
           currentParagraphs = currentParagraphs + '</p><p>' + this.passage;
         }
 
         this.finalText = currentParagraphs;
         
-      } else if (this.type === 'sentences' && textTypeCount == 1) {
-        // using sentences so get sentences
-        this.finalText = this.passageInSentences.slice(0, textTypeCount).join('. ');
+      } else if (this.type === 'sentences' && (textTypeCount <= this.passageInSentences.length)) {
+        this.finalText = this.passageInSentences.slice(0, textTypeCount).join(' ').toString();
       } else if (this.type === 'sentences' && (textTypeCount > this.passageInSentences.length)) {
         // need to increase amount of sentences in passageInSentences then take what's needed
-        this.finalText = this.passageInSentences.slice(0, textTypeCount).join('.');
+        this.finalText = this.passageInSentences.slice(0, textTypeCount);
+        let currentSentences = `${this.passageInSentences}`;
+
+        for (let step = 0; step < textTypeCount; step++) {
+          currentSentences + '++++++++' + this.passageInSentences;
+        }
+
+        this.finalText = currentSentences;
+
       } else if (this.type === 'words') {
         // using words so get words
         this.finalText = this.passageInWords.slice(0, textTypeCount).join(' ');
