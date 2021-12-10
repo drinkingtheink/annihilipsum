@@ -107,6 +107,7 @@ export default {
       ],
       finalText: null,
       confirmCopy: false,
+      error: false,
     }
   },
   computed: {
@@ -151,12 +152,15 @@ export default {
       this.type = type;
     },
     genText() {
+      this.error = false;
       let textTypeCount = this.$refs.count.value;
 
       if (this.type === 'paragraphs' && textTypeCount == 1) {
         this.finalText = this.passage.toString();
+
       } else if (this.type === 'paragraphs' && textTypeCount > 1) {
         let currentParagraphs = `${this.passage}`;
+        
         for (let step = 0; step < textTypeCount; step++) {
           currentParagraphs = currentParagraphs + '</p><p>' + this.passage;
         }
@@ -164,27 +168,25 @@ export default {
         this.finalText = currentParagraphs;
         
       } else if (this.type === 'sentences' && (textTypeCount <= this.passageInSentences.length)) {
-        this.finalText = this.passageInSentences.slice(0, textTypeCount).join(' ').toString();
+        this.finalText = this.passageInSentences.slice(0, textTypeCount).join('</p><p>').toString();
+
       } else if (this.type === 'sentences' && (textTypeCount > this.passageInSentences.length)) {
         // need to increase amount of sentences in passageInSentences then take what's needed
-        this.finalText = this.passageInSentences.slice(0, textTypeCount);
         let currentSentences = `${this.passageInSentences}`;
-
-        for (let step = 0; step < textTypeCount; step++) {
-          currentSentences + '++++++++' + this.passageInSentences;
-        }
 
         this.finalText = currentSentences;
 
       } else if (this.type === 'words') {
         // using words so get words
         this.finalText = this.passageInWords.slice(0, textTypeCount).join(' ');
+
       }
     },
     onCopy() {
       this.confirmCopy = true;
     },
     onError() {
+      this.error = true;
       console.log(` An error occured trying to copy the text. Please try again. - The Southern Reach `);
     },
   },
@@ -330,6 +332,9 @@ input[type="number"] {
   width: 5rem;
   text-align: center;
   border-radius: 10px;
+  border: 4px solid rgba(0,0,0,0.4);
+  color: red;
+  font-family: 'Permanent Marker', cursive;
 }
 
 h3 {
