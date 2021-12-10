@@ -92,6 +92,15 @@ button {
   color: #EE9B00;
 }
 
+a {
+  transition: all .2s;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
 button:hover {
   background-color: #EE9B00;
   color: red;

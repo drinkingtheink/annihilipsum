@@ -4,7 +4,7 @@
 
     <section class="description-stage">
       <SRLogo  class="sr-logo" />
-      <p class="description">Provide lifelike text for your prototyping projects while simultaneously <em>conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X</em>.</p>
+      <p class="description">Provide lifelike text for your prototyping projects while simultaneously <em>conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X</em>. - <a href="https://southernreach.fandom.com/wiki/Southern_Reach" target="_blank">The Southern Reach</a></p>
     </section>
 
     <section class="generated-stage">
@@ -86,8 +86,8 @@
 import Passage from './Passage.vue';
 import SRLogo from './SRLogo.vue';
 
-const defaultType = 'sentences';
-const defaultCount = 6;
+const defaultType = 'paragraphs';
+const defaultCount = 1;
 
 export default {
   name: 'AppStage',
@@ -102,7 +102,7 @@ export default {
       type: null,
       typeOptions: [
         {
-          name: 'sentences'
+          name: 'paragraphs'
         },
         {
           name: 'words'
@@ -125,7 +125,7 @@ export default {
     formattedFinalText() {
       let newFinalText;
 
-      if (this.type === 'sentences') {
+      if (this.type === 'paragraphs') {
         newFinalText = this.finalText ? this.finalText.toString() : null;
       } else {
         newFinalText = this.finalText;
@@ -157,9 +157,13 @@ export default {
     getText() {
       let textTypeCount = this.$refs.count.value;
 
-      if (this.type === 'sentences') {
-        this.finalText = this.passageInSentences.slice(0, textTypeCount);
+      if (this.type === 'paragraphs' && textTypeCount == 1) {
+        this.finalText = this.passage.toString();
+      } else if (this.type === 'paragraphs' && textTypeCount > 1) {
+        // if greater than, copy as many times as needed
+        
       } else {
+        // using words so get words
         this.finalText = this.passageInWords.slice(0, textTypeCount);
       }
     },
@@ -188,7 +192,7 @@ h1 {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 700px;
 }
 
 .description-stage .sr-logo {
@@ -277,6 +281,10 @@ label {
 
 .text-actions a:hover {
   color: #0A9396;
+}
+
+button.copy-text {
+  margin-right: 2rem;
 }
 
 button.copy-text.confirm-copy {
