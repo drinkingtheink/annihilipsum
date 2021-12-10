@@ -168,7 +168,7 @@ export default {
       } else if (this.type === 'sentences' && textTypeCount == 1) {
         // using sentences so get sentences
         this.finalText = this.passageInSentences.slice(0, textTypeCount).join('. ');
-      } else if (this.type === 'sentences' && textTypeCount > this.passageInSentences.length) {
+      } else if (this.type === 'sentences' && (textTypeCount > this.passageInSentences.length)) {
         // need to increase amount of sentences in passageInSentences then take what's needed
         this.finalText = this.passageInSentences.slice(0, textTypeCount).join('.');
       } else if (this.type === 'words') {
@@ -269,7 +269,8 @@ label {
   position: relative;
   text-align: left;
   border: 5px solid rgba(0,0,0,0.2);
-  max-height: 550px;
+  min-height: 10rem;
+  max-height: 450px;
   overflow: auto;
 }
 
