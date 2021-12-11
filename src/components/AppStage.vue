@@ -34,8 +34,8 @@
 
         <section class="generated">
             <div v-if="!formattedFinalText" class="toolbox-sr-logo">
-              <p>Something went wrong, try a different request. - The Southern Reach</p>
               <SRLogo class="toolbox-sr" />
+              <p>Something went wrong, try a different request. - The Southern Reach</p>
             </div>
             
             <p 
@@ -309,13 +309,29 @@ label {
   padding: 0.5rem 0;
 }
 
+@keyframes screenFlicker {
+  0%   { 
+    filter: blur(2px);
+  }
+  20%  { 
+    filter: blur(0);
+  }
+  25%  { 
+    filter: blur(1px);
+  }
+  80% { 
+    filter: blur(0); 
+  }
+}
+
 .generated .toolbox-sr-logo {
   text-align: center;
   width: 100%;
+  animation: screenFlicker 2s 2s infinite;
 }
 
 .toolbox-sr {
-  width: 15rem;
+  width: 12rem;
   opacity: 0.1;
 }
 
