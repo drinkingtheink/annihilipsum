@@ -33,6 +33,11 @@
         </section>
 
         <section class="generated">
+            <div v-if="!formattedFinalText" class="toolbox-sr-logo">
+              <p>Something went wrong, try a different request. - The Southern Reach</p>
+              <SRLogo class="toolbox-sr" />
+            </div>
+            
             <p 
               v-if="formattedFinalText"
               ref="final"
@@ -302,6 +307,16 @@ label {
 .generated .text-actions {
   border-top: 1px solid rgba(0,0,0,0.2);
   padding: 0.5rem 0;
+}
+
+.generated .toolbox-sr-logo {
+  text-align: center;
+  width: 100%;
+}
+
+.toolbox-sr {
+  width: 15rem;
+  opacity: 0.1;
 }
 
 .text-actions a {
