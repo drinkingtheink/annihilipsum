@@ -415,6 +415,7 @@ label {
 .generated .text-actions {
   border-top: 1px solid rgba(0,0,0,0.2);
   padding: 0.5rem 0;
+  min-height: 40px;
 }
 
 @keyframes screenFlicker {
