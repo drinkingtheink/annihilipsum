@@ -4,7 +4,7 @@
 
     <section class="description-stage">
       <SRLogo  class="sr-logo" />
-      <p class="description">Provide lifelike text for your prototyping projects while simultaneously <em>conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X</em>. - <a href="https://southernreach.fandom.com/wiki/Southern_Reach" target="_blank">The Southern Reach</a></p>
+      <p class="description">Provide lifelike text for your projects while simultaneously <em>conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X</em>. - <a href="https://southernreach.fandom.com/wiki/Southern_Reach" target="_blank">The Southern Reach</a></p>
     </section>
 
     <section class="generated-stage">
