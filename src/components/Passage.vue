@@ -146,6 +146,16 @@ export default {
     margin: 0 auto;
 }
 
+.the-passage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40rem;
+    background: linear-gradient(#001219, transparent);
+}
+
 .the-passage {
   position: absolute;
   top: 25rem;
