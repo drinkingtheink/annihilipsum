@@ -4,15 +4,17 @@
             v-if="preppedPassage"
             @click="goToInfoLink()"
         >
-            <span 
-                v-for="word, index in preppedPassage" 
-                :key="genKey(word, index)" 
-                class="word"
-                :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin(), 'blurred': flipCoin(), 'blue-green': flipCoin(), 'need-help': flipCoin(), 'need-drop': flipCoin() }"
-                :style="{ animationDelay: index + '50ms', fontSize: getRandomInt(2, 4) + 'rem' }"
-            >
-                {{ word }}
-            </span>
+            <transition-group name="words" tag="span">
+                <span 
+                    v-for="word, index in preppedPassage" 
+                    :key="genKey(word, index)"
+                    class="word"
+                    :class="{ 'alt': flipCoin(), 'alt2': flipCoin(), 'rotate': flipCoin(), 'blurred': flipCoin(), 'blue-green': flipCoin(), 'need-help': flipCoin(), 'need-drop': flipCoin() }"
+                    :style="{ animationDelay: index + '50ms', fontSize: getRandomInt(2, 4) + 'rem' }"
+                >
+                    {{ word }}
+                </span>
+            </transition-group>
         </p>
     </div>
 </template>
@@ -34,6 +36,11 @@ export default {
         if (this.passageInWords) {
             this.preppedPassage = this.passageInWords;
         }
+
+        setInterval(() => {
+            console.log(`CLEARING PREPPED PASSAGE >>>>>>>>>>>>>>>>`);
+            this.clearWords();
+        }, 20000);
     },
     methods: {
         genKey(word, index) {
@@ -49,6 +56,13 @@ export default {
         },
         goToInfoLink() {
             window.open(this.aboutIncantationLink);
+        },
+        clearWords() {
+            this.preppedPassage = null;
+
+            setTimeout(() => {
+                this.preppedPassage = this.passageInWords;
+            }, 40000);
         }
     }
 }
@@ -111,9 +125,19 @@ export default {
 @keyframes appear {
     0% {
         opacity: 0;
+        transform: translateY(-20px);
     }
     100% {
         opacity: 1;
+        transform: translateY(0);
     }
+}
+
+.words-leave-active {
+  transition: all 1s;
+}
+.words-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>
