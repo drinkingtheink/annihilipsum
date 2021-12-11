@@ -35,12 +35,12 @@
         <section class="generated">
             <div v-if="!formattedFinalText" class="toolbox-sr-logo">
               <SRLogo class="toolbox-sr" />
-              <p>Something went wrong, try a different request. - The Southern Reach</p>
+              <p>Something went wrong, try a different request.<br/> - The Southern Reach</p>
             </div>
             
             <p 
               v-if="formattedFinalText"
-              ref="final"
+              ref="generator"
               class="final-text"
               id="final-text"
               v-html="formattedFinalText"
@@ -85,8 +85,8 @@
 import Passage from './Passage.vue';
 import SRLogo from './SRLogo.vue';
 
-const defaultType = 'paragraphs';
-const defaultCount = 1;
+const defaultType = 'sentences';
+const defaultCount = 6;
 
 export default {
   name: 'AppStage',
@@ -147,6 +147,15 @@ export default {
     },
     type: function() {
       this.genText();
+    },
+    formattedFinalText: function() {
+      let generator = document.querySelector('.generated');
+      if (generator) {
+        console.log(`SCROLLING GEN DIV TO BOTTOM >>>>>>>>>>>>>>`);
+        // generator.scrollIntoView(false);
+        let scrollHeight = generator.scrollHeight;
+        generator.scrollTop = scrollHeight;
+      } 
     }
   },
   mounted() {
@@ -296,6 +305,7 @@ label {
   min-height: 10rem;
   max-height: 450px;
   overflow: auto;
+  scroll-behavior: smooth;
 }
 
 .generated .final-text {
@@ -330,6 +340,10 @@ label {
   animation: screenFlicker 2s 2s infinite;
 }
 
+.toolbox-sr-logo p {
+  font-family: 'Roboto Mono', monospace;
+}
+
 .toolbox-sr {
   width: 12rem;
   opacity: 0.1;
@@ -337,7 +351,7 @@ label {
 
 .text-actions a {
   margin: 0 1rem;
-  color: #94D2BD;
+  color: white;
   text-decoration: none;
 }
 
@@ -392,7 +406,7 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: white;
 }
 
 @keyframes blink {
