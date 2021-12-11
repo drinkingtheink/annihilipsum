@@ -1,4 +1,11 @@
-# annihilipsum
+# Annihil·ipsum Generator
+
+### Provide lifelike text for your projects while simultaneously conditioning your end users for the physically and psychologically exhaustive process of crossing into Area X. 
+
+#### Sentences, Words or Paragraphs - all filled with doom!
+![App Screenshot](https://ibb.co/5KT9Fzx)
+
+Inspired by ["The Southern Reach Trilogy" by Jeff VanderMeer](https://www.jeffvandermeer.com/book/area-x/)
 
 ## Project setup
 ```
