@@ -5,6 +5,8 @@
 #### Sentences, Words or Paragraphs - all filled with doom!
 ![App Screenshot](https://i.ibb.co/qJBn54F/Screen-Shot-2021-12-11-at-1-40-35-PM.png)
 
+### [Get your dummy text/psych conditioning here >>](https://annihilipsum.netlify.app/)
+
 Inspired by ["The Southern Reach Trilogy" by Jeff VanderMeer](https://www.jeffvandermeer.com/book/area-x/)
 
 ## Project setup
