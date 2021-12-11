@@ -44,6 +44,7 @@
               class="final-text"
               id="final-text"
               v-html="formattedFinalText"
+              tabindex="0"
             ></p><span class="blinking-cursor">|</span>
         </section>
 
@@ -149,12 +150,10 @@ export default {
       this.genText();
     },
     formattedFinalText: function() {
-      let generator = document.querySelector('.generated');
-      if (generator) {
-        console.log(`SCROLLING GEN DIV TO BOTTOM >>>>>>>>>>>>>>`);
-        // generator.scrollIntoView(false);
-        let scrollHeight = generator.scrollHeight;
-        generator.scrollTop = scrollHeight;
+      let generatorEl = document.querySelector('.generated');
+      if (generatorEl) {
+        let scrollHeight = generatorEl.scrollHeight * 2;
+        generatorEl.scrollTop = scrollHeight;
       } 
     }
   },
