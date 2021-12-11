@@ -70,7 +70,7 @@
             <a 
               href="https://drinkingtheink.github.io/"
               target="_blank"
-            >About the Author</a>
+            >About the Developer</a>
         </div>
       </div>
     </section>
@@ -451,6 +451,7 @@ label {
   margin: 0 1rem;
   color: white;
   text-decoration: none;
+  font-size: 90%;
 }
 
 .text-actions a:hover {
