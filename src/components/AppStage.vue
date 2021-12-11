@@ -469,16 +469,6 @@ button.copy-text.confirm-copy {
   color: red;
 }
 
-.the-passage {
-  position: absolute;
-  top: 25rem;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 1;
-  max-width: 1300px;
-}
-
 input {
   font-size: 2rem;
 }
