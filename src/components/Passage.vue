@@ -38,9 +38,9 @@ export default {
         }
 
         setInterval(() => {
-            console.log(`CLEARING PREPPED PASSAGE >>>>>>>>>>>>>>>>`);
+            console.log(`New Crawler message incoming... - The Southern Reach`);
             this.clearWords();
-        }, 20000);
+        }, 60000);
     },
     methods: {
         genKey(word, index) {
@@ -62,7 +62,7 @@ export default {
 
             setTimeout(() => {
                 this.preppedPassage = this.passageInWords;
-            }, 40000);
+            }, 2000);
         }
     }
 }
