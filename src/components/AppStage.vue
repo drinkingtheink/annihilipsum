@@ -50,6 +50,7 @@
 
         <div class="text-actions">
             <button 
+              v-if="formattedFinalText"
               class="copy-text"
               :class="{ 'confirm-copy': confirmCopy }"
               v-clipboard:copy="textForCopying"
@@ -202,7 +203,6 @@ export default {
         this.finalText = currentSentences.slice(0, textTypeCount).join('</p><p>').toString();
 
       } else if (this.type === 'words' && (textTypeCount < this.passageInWords.length)) {
-        // using words so get words
         this.finalText = this.passageInWords.slice(0, textTypeCount).join(' ');
 
       }
