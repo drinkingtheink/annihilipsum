@@ -102,13 +102,13 @@ export default {
       type: null,
       typeOptions: [
         {
-          name: 'paragraphs'
-        },
-        {
           name: 'sentences'
         },
         {
           name: 'words'
+        },
+        {
+          name: 'paragraphs'
         }
       ],
       finalText: null,
@@ -294,7 +294,7 @@ label {
 }
 
 .generated {
-  background-color: #e8e8e8;
+  background-color: #e8d8d8;
   margin: 1rem 0 0.5rem 0;
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
