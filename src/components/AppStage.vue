@@ -46,7 +46,7 @@
             <button 
               class="copy-text"
               :class="{ 'confirm-copy': confirmCopy }"
-              v-clipboard:copy="finalText"
+              v-clipboard:copy="textForCopying"
               v-clipboard:success="onCopy"
               v-clipboard:error="onError"
             >{{ confirmCopy ? 'Text Copied!' : 'Copy Text' }}</button>
@@ -127,6 +127,12 @@ export default {
       
       return newFinalText ? newFinalText : null;
     },
+    textForCopying() {
+      let origString = `${this.formattedFinalText}`;
+      let formattedString = origString.replace(/(<([^>]+)>)/gi, "\n");
+
+      return formattedString;
+    }
   },
   watch: {
     confirmCopy: function() {
