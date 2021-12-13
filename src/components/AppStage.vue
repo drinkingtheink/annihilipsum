@@ -12,7 +12,7 @@
         <section class="selections">
           <div>
             <label for="count">How Many?</label>
-            <input type="number" id="count" ref="count" @change="genText()" />
+            <input type="number" id="count" ref="count" @change="handleCountChange()" />
           </div>
 
           <div>
@@ -214,6 +214,20 @@ export default {
       this.error = true;
       console.log(` An error occured trying to copy the text. Please try again. - The Southern Reach `);
     },
+    handleCountChange() {
+      let currentCount = this.$refs.count.value;
+      
+      if (currentCount > -1) {
+        this.genText();
+      }
+
+      this.handleCountValue(currentCount);
+    },
+    handleCountValue(countVal) {
+      if (countVal < 0) {
+        this.$refs.count.value = 0;
+      }
+    }
   },
 }
 </script>
