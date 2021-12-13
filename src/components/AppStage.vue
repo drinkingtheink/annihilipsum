@@ -170,6 +170,7 @@ export default {
     },
     setType(type) {
       this.type = type;
+      this.focusInput();
     },
     genText() {
       this.error = false;
