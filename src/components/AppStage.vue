@@ -203,7 +203,7 @@ export default {
 
         this.finalText = currentSentences.slice(0, textTypeCount).join('</p><p>').toString();
 
-      } else if (this.type === 'words' && (textTypeCount < this.passageInWords.length)) {
+      } else if (this.type === 'words') {
         this.finalText = this.passageInWords.slice(0, textTypeCount).join(' ');
 
       }
