@@ -69,7 +69,7 @@
             >About this Project</a>
 
             <a 
-              href="https://drinkingtheink.github.io/"
+              href="http://www.drinkingtheink.com/"
               target="_blank"
             >About the Developer</a>
         </div>
@@ -115,6 +115,7 @@ export default {
       finalText: null,
       confirmCopy: false,
       error: false,
+      html: true,
     }
   },
   computed: {
@@ -136,7 +137,7 @@ export default {
     },
     textForCopying() {
       let origString = `${this.formattedFinalText}`;
-      let formattedString = origString.replace(/(<([^>]+)>)/gi, "\n");
+      let formattedString = this.html ? `<p>${origString}</p>` : origString.replace(/(<([^>]+)>)/gi, "\n");
 
       return formattedString;
     }
