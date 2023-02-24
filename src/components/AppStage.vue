@@ -115,7 +115,7 @@ export default {
       finalText: null,
       confirmCopy: false,
       error: false,
-      html: true,
+      html: false,
     }
   },
   computed: {
